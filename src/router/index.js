@@ -4,23 +4,22 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 const Login = () => import('@/views/login/Login')
-const Management = () => import('@/views/management/Management')
-const Index1 = () => import('@/views/management/menuList/index/Index1')
-const Index2 = () => import('@/views/management/menuList/index/Index2')
-const Index3 = () => import('@/views/management/menuList/index/Index3')
-const BookingPlatform = () => import('@/views/management/menuList/menus/BookingPlatform')
+const Management = () => import('@/views/management/MenuBar')
+const Index1 = () => import('@/views/management/index/Index1')
+const Index2 = () => import('@/views/management/index/Index2')
+const Index3 = () => import('@/views/management/index/Index3')
 const Dashboard1 = () => import('@/views/dashboard/Dashboard1')
 
 
 const routes = [
   {
     path: '',
-    redirect: '/login'
+    redirect: '/dashboard1'
   },
-  {
-    path: '/login',
-    component: Login
-  },
+  // {
+  //   path: '/login',
+  //   component: Login
+  // },
   {
     path: '/dashboard1',
     component: Dashboard1,
@@ -44,11 +43,6 @@ const routes = [
         path: 'index3',
         name: 'index3',
         component: Index3
-      },
-      {
-        path: 'menu1',
-        name: 'menu1',
-        component: BookingPlatform
       },
     ]
   },

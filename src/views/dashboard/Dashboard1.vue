@@ -1,7 +1,9 @@
 <template>
     <div class="db-view">
         <header class="header">
-            <h3 @click="$router.go(-1)">数据展板</h3>
+            <router-link to="/management/index1">
+                <h3>点击进入后台管理</h3>
+            </router-link>
         </header>
 
         <div class="wrapper">
