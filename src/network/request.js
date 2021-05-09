@@ -7,7 +7,7 @@ import utils from '@/static/js/app/utils'
 import Loading from '@/components/common/loading'
 
 axios.defaults.timeout = 1000 * 10;
-axios.defaults.baseURL = 'http://47.102.134.101:10002';
+axios.defaults.baseURL = 'http://47.102.134.101';
 
 axios.interceptors.request.use(
     config => {
