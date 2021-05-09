@@ -1,7 +1,7 @@
 module.exports = {
-    account: {
-        login: {},
-        loginout: {},
+    user: {
+        login: { path: '/api/common/user_login'},
+        loginout: { path: '/api/common/login_out'},
     },
     proxy: {
         getProxies: { path: '/api/vmodel/getProxies' },

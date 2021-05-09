@@ -28,11 +28,11 @@
                 <li class="nav-item">
                     <a
                         class="nav-link"
-                        data-widget="control-sidebar"
-                        data-slide="true"
                         href="#"
+                        @click="login_out"
                     >
-                        <i class="fas fa-th-large"></i>
+                        <!-- <i class="fas fa-th-large"></i> -->
+                        退出登录
                     </a>
                 </li>
             </ul>
@@ -144,7 +144,7 @@
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <!-- /.content-header -->
-            <hr />
+            <br>
             <!-- Main content -->
             <section class="content">
                 <router-view />
@@ -172,14 +172,19 @@
 </template>
 
 <script>
+import api from "@/network/apiUrls";
 export default {
     components: {},
     methods: {
-        Dashboard1: function () {
-            this.$router.push("/dashboard1");
-        },
-        Dashboard2: function () {
-            this.$router.push("/dashboard2");
+        login_out: function () {
+            this.$req.fetch(api.user.loginout.path, {}, { successNotify: true }).then(resp => {
+                if (resp.code == 200) {
+                    localStorage.removeItem('token')
+                    this.$router.push("/login");
+                } else {
+                    console.info("get 请求 失败 >>> ", resp);
+                }
+            });
         },
     },
 };

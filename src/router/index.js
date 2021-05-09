@@ -14,12 +14,12 @@ const Dashboard1 = () => import('@/views/dashboard/Dashboard1')
 const routes = [
   {
     path: '',
-    redirect: '/dashboard1'
+    redirect: '/login'
   },
-  // {
-  //   path: '/login',
-  //   component: Login
-  // },
+  {
+    path: '/login',
+    component: Login
+  },
   {
     path: '/dashboard1',
     component: Dashboard1,
@@ -61,12 +61,12 @@ import Loading from '@/components/common/loading'
 import NProgress from 'nprogress'
 
 router.beforeEach((to, from, next) => {
+
+  if (to.path != '/login' && localStorage.getItem('token') == null) {
+    next({ path: '/login' })
+  }
   next()
-  // if (store.userInfo.status) {
-  //   next()
-  // } else {
-  //   next({ path: '/login' })
-  // }
+  
 })
 
 router.afterEach(() => {

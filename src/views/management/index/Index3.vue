@@ -52,7 +52,6 @@
             </div>
           </div>
         </div>
-
         <div class="card">
           <div class="card-header border-0">
             <h3 class="card-title">Products</h3>
@@ -417,6 +416,24 @@ export default {
                 }
                 }
             })
+        },
+        test() {
+            this.$req.fetch("/api/common/test", {}, { successNotify: true }).then(resp => {
+                if (resp.code == 200) {
+                  console.info(resp)
+                } else {
+                    console.info("get 请求 失败 >>> ", resp);
+                }
+            });
+        },
+        tt() {
+            this.$req.fetch("/api/proxy/getProxies", {}, { successNotify: true }).then(resp => {
+                if (resp.code == 200) {
+                  console.info(resp)
+                } else {
+                    console.info("get 请求 失败 >>> ", resp);
+                }
+            });
         }
     }
 }
